@@ -1,13 +1,11 @@
-//
-// Created by Admin on 19.02.2024.
-//
+
 #include "../../data_structures/vector/vector.h"
 
 
 vector createVector(size_t n) {
     int *new_data = (int *) malloc(n * sizeof(int));
     if (new_data == NULL) {
-        fprintf(stderr, "bad alloc");
+        fprintf(stderr, "bad realloc");
         exit(1);
     }
     return (vector) {new_data, 0, n};
@@ -59,10 +57,55 @@ void deleteVector(vector *v) {
 
 
 bool isEmpty(vector *v) {
-    return v->size == 0 ? 1 : 0;
+    return v->size == 0;
 }
 
 
 bool isFull(vector *v) {
-    return v->size == v->capacity ? 1 : 0;
+    return v->size == v->capacity;
+}
+
+
+int getVectorValue(vector *v, size_t i) {
+    return v->data[i];
+}
+
+
+void pushBack(vector *v, int x) {
+    if (isFull(v)) {
+        if (v->capacity != 0)
+            reserve(v, v->capacity * 2);
+        else
+            reserve(v, v->capacity + 1);
+    }
+    v->data[v->size] = x;
+    v->size++;
+}
+
+
+void popBack(vector *v) {
+    if (isEmpty(v)) {
+        fprintf(stderr, "vector is empty");
+        exit(1);
+    }
+    v->data[v->size - 1] = 0;
+    v->size--;
+}
+
+
+int *atVector(vector *v, size_t index) {
+    if (index > v->size - 1) {
+        fprintf(stderr, "IndexError: a [%zu] is not exists", index);
+        exit(1);
+    }
+    return &v->data[index];
+}
+
+
+int *back(vector *v) {
+    return atVector(v, v->size - 1);
+}
+
+int *front(vector *v) {
+    return atVector(v, 0);
 }
