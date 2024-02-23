@@ -2,6 +2,8 @@
 #define TEST_VECTOR_VOID_H
 
 #include <limits.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 typedef struct vectorVoid {
     void *data; // указатель на нулевой элемент вектора
