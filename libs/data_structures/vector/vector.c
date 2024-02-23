@@ -28,10 +28,13 @@ void shrinkToFit(vector *v) {
 void reserve(vector *v, size_t newCapacity) {
     if (newCapacity == 0) {
         v->data = NULL;
-        v->capacity = newCapacity;
+        v->size = 0;
+        v->capacity = 0;
         return;
     }
+
     int *new_data = (int *) realloc(v->data, newCapacity * sizeof(int));
+
     if (new_data == NULL) {
         fprintf(stderr, "bad realloc");
         exit(1);
