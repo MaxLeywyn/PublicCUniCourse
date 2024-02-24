@@ -89,9 +89,10 @@ void popBackV(vectorVoid *v) {
         fprintf(stderr, "vector is empty");
         exit(1);
     }
-    v->size--;
-    memcpy((void *) v->data + v->size * v->baseTypeSize, NULL, v->baseTypeSize);
 
+    int a = 0;
+    setVectorValueV(v,v->size-1,&a);
+    v->size--;
 }
 
 
