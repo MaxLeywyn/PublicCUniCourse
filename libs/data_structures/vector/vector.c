@@ -91,8 +91,9 @@ void popBack(vector *v) {
         fprintf(stderr, "vector is empty");
         exit(1);
     }
-    v->data[v->size - 1] = 0;
     v->size--;
+    v->data[v->size] = 0;
+
 }
 
 
