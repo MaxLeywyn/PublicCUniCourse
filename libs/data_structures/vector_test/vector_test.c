@@ -56,3 +56,14 @@ void test_front_oneElementInVector() {
     pushBack(&v, 2);
     assert(front(&v) == &v.data[0]);
 }
+
+
+void test(){
+    test_pushBack_emptyVector();
+    test_pushBack_fullVector();
+    test_popBack_notEmptyVector();
+    test_atVector_notEmptyVector();
+    test_atVector_requestToLastElement();
+    test_back_oneElementInVector();
+    test_front_oneElementInVector();
+}

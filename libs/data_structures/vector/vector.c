@@ -110,6 +110,7 @@ int *back(vector *v) {
     return atVector(v, v->size - 1);
 }
 
+
 int *front(vector *v) {
     return atVector(v, 0);
 }

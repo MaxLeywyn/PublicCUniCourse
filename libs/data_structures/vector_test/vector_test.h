@@ -17,5 +17,6 @@ void test_back_oneElementInVector();
 
 void test_front_oneElementInVector();
 
+void test();
 
 #endif //TEST_VECTOR_TEST_H

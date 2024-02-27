@@ -17,7 +17,6 @@ int main() {
         pushBackV(&v, &x);
     }
 
-
     popBackV(&v);
 
     for (int i = 0; i < n; i++) {
